@@ -285,8 +285,6 @@ This project is a web application developed using Flask that allows users to man
 
 6. Open the application in a browser at `http://127.0.0.1:5000/`.
 
-![Medical Organizations Management Interface](image.png)
-
 ## Database Structure
 
 The application uses a PostgreSQL database to store information about medical organizations and statistical data.
@@ -394,3 +392,6 @@ INSERT INTO maps_stat (id_subject, map_stat) VALUES
 
 - Flask documentation: https://flask.palletsprojects.com/
 - psycopg2 documentation: https://www.psycopg.org/docs/
+
+
+![Medical Organizations Management Interface](image.png)
