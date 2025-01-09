@@ -188,3 +188,9 @@ INSERT INTO maps_stat (id_subject, map_stat) VALUES
 
 ### Экспорт данных
 - Нажмите на кнопку экспорта для скачивания данных в формате Excel.
+
+### Ссылки на документацию
+
+Документация Flask: https://flask.palletsprojects.com/
+
+Документация psycopg2: https://www.psycopg.org/docs/
