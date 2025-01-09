@@ -27,7 +27,7 @@
 ## Используемые технологии
 
 - **Backend**:
-  - Python 3.x
+  - Python 3.10
   - Flask
 
 - **База данных**:
@@ -45,17 +45,17 @@
 1. Склонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/yourusername/your-repository.git
+   git clone https://github.com/kingston45-dev/base_mo.git
    ```
 
 2. Перейдите в директорию проекта:
 
    ```bash
-   cd your-repository
+   cd base_mo
    ```
 
 3. Настройте базу данных:
-   - Установите PostgreSQL, если он еще не установлен.
+   - Установите PostgreSQL.
    - Создайте базу данных с необходимой структурой (см. раздел "Структура базы данных").
    - Настройте файл конфигурации `.env` для хранения учетных данных:
 
@@ -164,7 +164,7 @@ INSERT INTO maps_stat (id_subject, map_stat) VALUES
 
 ```
 .
-├── app.py                 # Основной Flask-приложение
+├── app.py                 # Flask-приложение
 ├── templates/             # HTML-шаблоны
 │   ├── index.html         # Главная страница
 │   ├── edit.html          # Шаблон редактирования МО
