@@ -396,14 +396,6 @@ INSERT INTO maps_stat (id_subject, map_stat) VALUES
 ### Exporting Data
 - Click the export button to download data in Excel format.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Contributions
-
-We welcome your ideas and suggestions! Feel free to open pull requests or create issues.
-
 ## Acknowledgments
 
 - Flask documentation: https://flask.palletsprojects.com/
