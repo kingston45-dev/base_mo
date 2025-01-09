@@ -285,12 +285,6 @@ This project is a web application developed using Flask that allows users to man
 
 6. Open the application in a browser at `http://127.0.0.1:5000/`.
 
-## Screenshot
-
-Ensure that the 'image.png' file is correctly placed in the project directory or linked properly so that the screenshot appears in the rendered README.
-
-Below is an example screenshot of the interface for managing medical organizations:
-
 ![Medical Organizations Management Interface](image.png)
 
 ## Database Structure
