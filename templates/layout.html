@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>МО</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+  
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">Является ли МО якорной</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbar-example" aria-controls="navbar-example"
+                aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-example">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/list_mo">Список МО<span class="sr-only">(текущая)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/statInfo">Статистическая информация о субъекте</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <p>
+      <a href="{{ url_for('.download_report') }}">Сгенерировать отчет в виде Excel-формы</a>
+    </p>
+    <div class="container pt-4">
+      {% block body %}
+      {% endblock %}
+    </div>
+   
+<script>
+const btnDelete= document.querySelectorAll('.btn-delete');
+if(btnDelete) {
+  const btnArray = Array.from(btnDelete);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('Вы действительно хотите удалить значение?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+  
+$(document).ready(function() {
+    $('#example').DataTable({     
+      "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Все"]],
+        "iDisplayLength": 5
+       } 
+    );
+} );
+  
+</script>
+  </body>
+</html>

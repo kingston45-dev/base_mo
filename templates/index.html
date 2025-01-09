@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+ <div class="row"><h3>Mедицинские организации</h3></div>
+  <div class="row">
+    <div class="col-md-4">
+      {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <div class="card card-body">
+        <form action="{{url_for('add_MO')}}" method="POST">
+          <div class="form-group">
+            <select class="form-control" name="id_subject">
+              <option value="" disabled selected>Код субъекта</option>
+              {% for i in range(1, 90) %}
+              <option value="{{ i }}">{{ i }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="mo_name" placeholder="Название МО">
+          </div>
+          <div class="form-group">
+            <select class="form-control" name="anchoring">
+              <option value="" disabled selected>Является ли МО якорной</option>
+              <option value="+">+</option>
+              <option value="-">-</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-block">
+            Сохранить 
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+          <tr>
+            <td>Код региона</td>
+            <td>МО</td>
+            <td>Является ли якорной МО</td>
+            <td> </td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in list_users %}
+          <tr>
+            <td><a href="{{ url_for('statinfo', id_subject=row[0]) }}">{{ row[0] }}</a></td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td width="130">
+              <a href="/edit/{{row[0]}}" class="btn btn-secondary btn-sm">изменить</a>
+              <a href="/delete/{{row[0]}}" class="btn btn-danger btn-delete btn-sm">удалить</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}

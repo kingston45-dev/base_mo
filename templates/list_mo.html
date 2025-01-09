@@ -1,0 +1,47 @@
+<html lang="ru">
+    <head>
+      <meta charset="UTF-8">
+      <title>Список МО</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/list_mo">Список МО</a>
+      </nav>
+    <div class="col-md-8">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+            <tr>
+              <td>Код региона</td>
+              <td>Субъект РФ</td>
+              <td>МО</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in result %}
+            <tr>
+              <td><a href="{{ url_for('listmo', id_fo=row[0]) }}">{{ row[0] }}</a></td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable({     
+      "aLengthMenu": [[10, 30, 50, 100, -1], [10, 30, 50, 100, "Все"]],
+        "iDisplayLength": 10
+       } 
+    );
+} );
+    </script>
+  </body>
+</html>

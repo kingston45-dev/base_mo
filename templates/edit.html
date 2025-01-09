@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/update/{{mo.id_subject}}" method="POST">
+          <div class="form-group">
+            <input type="text" name="mo_name" value="{{mo.mo_name}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="anchoring" value="{{mo.anchoring}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="year" value="{{mo.year}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">
+              Изменить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

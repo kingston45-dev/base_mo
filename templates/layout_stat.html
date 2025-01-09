@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Статистическая информация</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+  
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Статистическая информация</a>
+    </nav>
+    <p>
+      <a href="{{ url_for('.download_report_stat') }}">Сгенерировать отчет по статистическим данным в виде Excel-формы</a>
+    </p>
+    <div class="container pt-4">
+      {% block body %}
+      {% endblock %}
+    </div>
+   
+<script>
+const btnDelete= document.querySelectorAll('.btn-delete');
+if(btnDelete) {
+  const btnArray = Array.from(btnDelete);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('Вы действительно хотите удалить значение?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+  
+$(document).ready(function() {
+    $('#ex').DataTable({     
+      "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Все"]],
+        "iDisplayLength": 5
+       } 
+    );
+} );
+  
+</script>
+  </body>
+</html>

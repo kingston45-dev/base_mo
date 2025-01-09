@@ -1,0 +1,37 @@
+{% extends "layout_stat.html" %}
+{% block body %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        {% for stat in stats %}
+        <form action="{{ url_for('update_stat', id_subject=stat.id_subject, year=stat.year) }}" method="POST">
+          <div class="col-md-4 offset-md-4">
+            <h2>{{ stat.year }}</h2>
+          </div>
+          <div class="form-group">
+            <label for="population_all">Население:</label>
+            <input type="text" name="population_all" value="{{stat.population_all}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="population_adult">Взрослое население:</label>
+            <input type="text" name="population_adult" value="{{stat.population_adult}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="population_city">Городское население:</label>
+            <input type="text" name="population_city" value="{{stat.population_city}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="population_country">Сельское население:</label>
+            <input type="text" name="population_country" value="{{stat.population_country}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">
+              Изменить
+            </button>
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
