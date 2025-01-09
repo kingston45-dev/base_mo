@@ -10,9 +10,9 @@ app = Flask(__name__)
 app.secret_key = "NMIC"
  
 DB_HOST = "localhost"
-DB_NAME = "base1"
-DB_USER = "postgres"
-DB_PASS = 1872
+DB_NAME = "YOUR_DB_NAME"
+DB_USER = "YOUR_USERNAME"
+DB_PASS = "YOUR_PASSWORD"
  
 conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
  
