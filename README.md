@@ -191,6 +191,6 @@ INSERT INTO maps_stat (id_subject, map_stat) VALUES
 
 ### Ссылки на документацию
 
-Документация Flask: https://flask.palletsprojects.com/
+- Документация Flask: https://flask.palletsprojects.com/
 
-Документация psycopg2: https://www.psycopg.org/docs/
+- Документация psycopg2: https://www.psycopg.org/docs/
